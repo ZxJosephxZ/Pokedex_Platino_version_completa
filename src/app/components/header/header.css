@@ -2,8 +2,10 @@
 header{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 20px;;
     height: 80px;
+    user-select: none;
     background: linear-gradient(
         to right,
         #6188ff 70%,
@@ -36,4 +38,14 @@ h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2.5 rem;
     -webkit-text-stroke: 2px #30607a;
+}
+a{
+    color: #f0fbff;
+    text-decoration: none;
+    background-color: #4379cf;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    border-radius: 50px;
+    font-size: x-large;
 }
