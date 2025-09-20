@@ -1,13 +1,26 @@
 import { Injectable } from '@angular/core';
-
+import { Result } from './models/data';
+import { Pokemon_struct } from './models/pokemon.models';
 @Injectable({
   providedIn: 'root'
 })
 export class Pokemon {
   readonly #pokeUrl = "https://pokeapi.co/api/v2/pokemon";
 
-  getByPage()
+  async getByPage(pagina:number, size:number = 40): Promise<Result[]>
   {
-    fetch(`${this.#pokeUrl}/?limit=20&offset=20`)
+    if (pagina > 5) return [];
+    const offset = size * (pagina - 1);
+    const res = await fetch(`${this.#pokeUrl}/?limit=${size}&offset=${offset}`)
+    const resJson = await res.json();
+    if(resJson.results.length > 0) return resJson.results;
+    return [];
+  }
+
+  async getById(id:string):Promise<Pokemon_struct>
+  {
+    const res = await fetch(`${this.#pokeUrl}/${id}`);
+    const resJson = await res.json();
+    return resJson;
   }
 }

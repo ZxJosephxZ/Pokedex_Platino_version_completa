@@ -1,9 +1,12 @@
 <div id="container" >
     <img src="flecha.png" alt="" id="flecha">
-    <div id="tarjeta">
+    <div id="tarjeta" (click)="clickeado.emit(id)">
         <div id="circulo"></div>
-        <img src="char.png" alt="">
-        <span>No. 001</span>
-        <span>charmander</span>
+        <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id}}.png' alt="">
+        <span>No. {{id}}</span>
+        @if (data) 
+        {
+            <span>{{data.name | titlecase}}</span>
+        } 
     </div>
 </div>
