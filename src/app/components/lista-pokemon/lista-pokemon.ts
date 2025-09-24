@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import { Result } from '../../services/models/data';
-import { TitleCasePipe } from '@angular/common';
+import { NgClass, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-lista-pokemon',
-  imports: [TitleCasePipe],
+  imports: [TitleCasePipe, NgClass],
   templateUrl: './lista-pokemon.html',
   styleUrl: './lista-pokemon.css'
 })
@@ -13,6 +13,7 @@ ngOnChanges(): void {
   this.obtenerNumero();
 }
 @Input() data?: Result;
+@Input() seleccionado: boolean = false;
 @Output() clickeado = new EventEmitter<string>();
 id:string="0";
 

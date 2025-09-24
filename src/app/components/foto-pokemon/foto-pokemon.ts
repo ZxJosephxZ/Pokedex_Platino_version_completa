@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Pokemon_struct } from '../../services/models/pokemon.models';
 
 @Component({
   selector: 'app-foto-pokemon',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './foto-pokemon.css'
 })
 export class FotoPokemon {
-
+  @Input() pokemon?: Pokemon_struct; 
 }

@@ -3,6 +3,7 @@ import { ListaPokemon } from '../../components/lista-pokemon/lista-pokemon';
 import { FotoPokemon } from '../../components/foto-pokemon/foto-pokemon';
 import { Pokemon } from '../../services/pokemon';
 import { Result } from '../../services/models/data';
+import { Pokemon_struct } from '../../services/models/pokemon.models';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,13 @@ export class Home implements OnInit{
   @ViewChild('tarjetas') tarjetasElement!: ElementRef;
   readonly #Pokemon = inject(Pokemon);
   protected listaPokemon: Result[] = [];
+  pokemonSeleccionado? : Pokemon_struct;
   
   pagina:number=1;
   cargando:boolean=false;
   ngOnInit(): void {
     this.cargarLista();
+    this.#Pokemon.getById("1");
   }
   
   async cargarLista()
@@ -38,8 +41,8 @@ export class Home implements OnInit{
   }
   }
 
-  tarjetaClickeada(e:string)
+  async tarjetaClickeada(id:string)
   {
-    console.log(e);
+    this.pokemonSeleccionado = await this.#Pokemon.getById(id);
   }
 }

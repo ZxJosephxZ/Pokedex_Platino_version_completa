@@ -1,9 +1,9 @@
 <main id="container">
-<app-foto-pokemon></app-foto-pokemon>
+<app-foto-pokemon [pokemon]="pokemonSeleccionado"></app-foto-pokemon>
 <div id="tarjetas-container" #tarjetas (scroll)="onScroll($event)" >
     @for (pokemon of listaPokemon; track pokemon)
     {
-    <app-lista-pokemon [data]="pokemon" (clickeado)="tarjetaClickeada($event)"></app-lista-pokemon>
+    <app-lista-pokemon [data]="pokemon" (clickeado)="tarjetaClickeada($event)" [seleccionado]="pokemon.name === pokemonSeleccionado?.name"></app-lista-pokemon>
     }
 </div>
 </main>
