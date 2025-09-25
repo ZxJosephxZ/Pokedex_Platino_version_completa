@@ -4,10 +4,11 @@ import { FotoPokemon } from '../../components/foto-pokemon/foto-pokemon';
 import { Pokemon } from '../../services/pokemon';
 import { Result } from '../../services/models/data';
 import { Pokemon_struct } from '../../services/models/pokemon.models';
+import { Detalles } from "../../components/detalles/detalles";
 
 @Component({
   selector: 'app-home',
-  imports: [ListaPokemon, FotoPokemon],
+  imports: [ListaPokemon, FotoPokemon, Detalles],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

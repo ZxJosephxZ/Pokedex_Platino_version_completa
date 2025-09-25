@@ -23,4 +23,13 @@ export class Pokemon {
     const resJson = await res.json();
     return resJson;
   }
+
+  async getDescription(id:string | number): Promise<string>
+  {
+    const res = await fetch(`${this.#pokeUrl}-species/${id}`)
+    const resJson = await res.json();
+    const texto = resJson.flavor_text_entries.find((texto:any) => texto.language.name === "es");
+    return texto.flavor_text;
+  }
+
 }

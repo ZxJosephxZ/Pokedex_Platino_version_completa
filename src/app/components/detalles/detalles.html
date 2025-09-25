@@ -1,0 +1,21 @@
+<div id="container">
+    <div class="area">
+        <app-lista-pokemon></app-lista-pokemon>
+    </div>
+    <div class="area">
+        <p><span class="etiqueta">Tipo</span>
+            @for (tipo of caracteristicas?.types; track $index) {
+            <span class="tipo">{{tipo.type.name}}</span>
+        }
+        </p>
+        <p><span class="etiqueta">Altura</span>{{caracteristicas?.height}}</p>
+        <p><span class="etiqueta">Peso</span>{{caracteristicas?.weight}}</p>
+    </div>
+    <div class="area">
+        <div id="descriptionContainer">
+            <div></div>
+            <p>{{description}}</p>
+            <div></div>
+        </div>
+    </div>
+</div>

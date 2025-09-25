@@ -28,6 +28,16 @@
     );
 }
 
+app-foto-pokemon{
+    z-index: 2;
+    margin-left: 100px;
+}
+
+app-detalles{
+    position: absolute;
+    z-index: 1;
+}
+
 #tarjetas-container
 {
     display: flex;
