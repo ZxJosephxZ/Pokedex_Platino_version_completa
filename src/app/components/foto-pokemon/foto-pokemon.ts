@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Pokemon_struct } from '../../services/models/pokemon.models';
 
+
 @Component({
   selector: 'app-foto-pokemon',
   imports: [],

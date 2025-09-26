@@ -5,10 +5,12 @@ import { Pokemon } from '../../services/pokemon';
 import { Result } from '../../services/models/data';
 import { Pokemon_struct } from '../../services/models/pokemon.models';
 import { Detalles } from "../../components/detalles/detalles";
+import { NgClass } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
-  imports: [ListaPokemon, FotoPokemon, Detalles],
+  imports: [ListaPokemon, FotoPokemon, Detalles, NgClass],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -17,6 +19,7 @@ export class Home implements OnInit{
   readonly #Pokemon = inject(Pokemon);
   protected listaPokemon: Result[] = [];
   pokemonSeleccionado? : Pokemon_struct;
+  detalle:boolean=false;
   
   pagina:number=1;
   cargando:boolean=false;
@@ -44,6 +47,15 @@ export class Home implements OnInit{
 
   async tarjetaClickeada(id:string)
   {
+    if(this.pokemonSeleccionado && id === this.pokemonSeleccionado?.id.toString())
+    {
+      return this.cambiarEstadoDetalle();
+    }
     this.pokemonSeleccionado = await this.#Pokemon.getById(id);
+  }
+
+  cambiarEstadoDetalle()
+  {
+    if(this.pokemonSeleccionado) this.detalle = !this.detalle;
   }
 }

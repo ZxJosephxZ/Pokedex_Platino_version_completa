@@ -1,6 +1,6 @@
 <main id="container">
-    <app-detalles [caracteristicas]="pokemonSeleccionado"></app-detalles>
-<app-foto-pokemon [pokemon]="pokemonSeleccionado"></app-foto-pokemon>
+    <app-detalles [caracteristicas]="pokemonSeleccionado" (clicked)="cambiarEstadoDetalle()" [abierto]="detalle" [ngClass]="{abierto:detalle}"></app-detalles>
+<app-foto-pokemon [pokemon]="pokemonSeleccionado" [ngClass]="{abierto:detalle}"></app-foto-pokemon>
 <div id="tarjetas-container" #tarjetas (scroll)="onScroll($event)" >
     @for (pokemon of listaPokemon; track pokemon)
     {
